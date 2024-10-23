@@ -1,10 +1,10 @@
-package me.shinsunyoung.springBootDevelpoer;
+package me.shinsunyoung.springBootDeveloper;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootDevelpoerApplicationTests {
+class SpringBootDeveloperApplicationTests {
 
 	@Test
 	void contextLoads() {
