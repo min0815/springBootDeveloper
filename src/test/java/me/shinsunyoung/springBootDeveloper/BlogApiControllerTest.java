@@ -1,6 +1,7 @@
 package me.shinsunyoung.springBootDeveloper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.shinsunyoung.springBootDeveloper.domain.Article;
 import me.shinsunyoung.springBootDeveloper.dto.AddArticleRequest;
 import me.shinsunyoung.springBootDeveloper.repository.BlogRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -80,8 +84,11 @@ class BlogApiControllerTest {
         result.andExpect(status().isCreated());
         // 컨트롤러에서 설정한 요청(created)가 반환됐는지 확인
 
+        List<Article> articles = blogRepository.findAll();
 
-
+        assertThat(articles.size()).isEqualTo(1);
+        assertThat(articles.get(0).getTitle()).isEqualTo(title);
+        assertThat(articles.get(0).getContent()).isEqualTo(content);
     }
 
 }
