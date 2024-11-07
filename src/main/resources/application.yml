@@ -1,3 +1,6 @@
+server:
+  port: 7070
+
 spring:
   jpa:
     show-sql: true
@@ -7,6 +10,7 @@ spring:
     defer-datasource-initialization: true
   datasource:
     url: jdbc:h2:mem:testdb
+    username: sa
   h2:
     console:
       enabled: true
