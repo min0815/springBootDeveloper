@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 // JWT 관련 설정을 외부설정파일(application.properites 또는 application.yml)에서 가져와서 사용하는데 사용
 // JWT 토큰을 생성하고 검증하는 데 필요한 정보를 외부에서 설정할 수 있게 해줌
 
-
 @Setter
 @Getter
 @Component
