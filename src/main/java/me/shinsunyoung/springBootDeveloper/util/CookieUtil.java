@@ -39,4 +39,12 @@ public class CookieUtil {
     }
     // 1. obj를 바이트 배열로 직렬화
     // 2. 바이트 배열을 쿠키, URL, 또는 JSON과 같은 텍스트 기반 저장소에 저장할 수 없으므로, Base64형식의 문자열로 다시 변환
+
+    public static <T> T deserialize(Cookie cookie, Class<T> cls) {
+        return cls.cast(
+                SerializationUtils.deserialize(
+                        Base64.getUrlDecoder().decode(cookie.getValue())
+                )
+        );
+    }
 }
