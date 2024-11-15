@@ -29,10 +29,14 @@ public class User implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "nickname", unique = true)
+    private String nickname;
+
     @Builder
-    public User(String email, String password, String auth) {
+    public User(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
+        this.nickname = nickname;
     }
 
     @Override
@@ -42,6 +46,11 @@ public class User implements UserDetails {
     // simpleGrantedAuthority
     // - Basic concrete implementation of a GrantedAuthority.
     // - Stores a String representation of an authority granted to the Authentication object.
+
+    public User update(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
 
     @Override
     public String getPassword() {
