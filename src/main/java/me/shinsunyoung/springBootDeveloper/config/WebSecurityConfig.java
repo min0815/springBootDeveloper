@@ -1,4 +1,4 @@
-package me.shinsunyoung.springBootDeveloper.config;
+/*package me.shinsunyoung.springBootDeveloper.config;
 
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springBootDeveloper.service.UserDetailService;
@@ -64,3 +64,4 @@ public class WebSecurityConfig {
     }
 
 }
+*/
