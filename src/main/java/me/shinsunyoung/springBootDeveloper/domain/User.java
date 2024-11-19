@@ -39,6 +39,11 @@ public class User implements UserDetails {
         this.nickname = nickname;
     }
 
+    public User update(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("user"));
@@ -46,11 +51,6 @@ public class User implements UserDetails {
     // simpleGrantedAuthority
     // - Basic concrete implementation of a GrantedAuthority.
     // - Stores a String representation of an authority granted to the Authentication object.
-
-    public User update(String nickname) {
-        this.nickname = nickname;
-        return this;
-    }
 
     @Override
     public String getPassword() {

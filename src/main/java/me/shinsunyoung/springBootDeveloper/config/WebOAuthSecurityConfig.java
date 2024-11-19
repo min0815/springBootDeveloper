@@ -7,6 +7,7 @@ import me.shinsunyoung.springBootDeveloper.config.oauth.OAuth2SuccessHandler;
 import me.shinsunyoung.springBootDeveloper.config.oauth.OAuth2UserCustomService;
 import me.shinsunyoung.springBootDeveloper.repository.RefreshTokenRepository;
 import me.shinsunyoung.springBootDeveloper.service.UserService;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -34,8 +35,8 @@ public class WebOAuthSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
-                .requestMatchers(toH2Console())
-                .requestMatchers("/img/**", "/css/**", "/js/**");
+                .requestMatchers(PathRequest.toH2Console())
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
     @Bean

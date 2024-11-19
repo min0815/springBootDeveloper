@@ -22,6 +22,9 @@ public class BlogApiController {
 
     @PostMapping("/api/articles")
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request, Principal principal) {
+        System.out.println("테스트테스트");
+        System.out.println(request);
+        System.out.println(principal);
         return ResponseEntity.status(HttpStatus.CREATED).body(blogService.save(request, principal.getName()));
     }
 
