@@ -88,7 +88,6 @@ public class WebOAuthSecurityConfig {
         );
     }
 
-
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
         return new TokenAuthenticationFilter(tokenProvider);

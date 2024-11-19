@@ -6,6 +6,7 @@ import me.shinsunyoung.springBootDeveloper.domain.Article;
 import me.shinsunyoung.springBootDeveloper.dto.AddArticleRequest;
 import me.shinsunyoung.springBootDeveloper.dto.UpdateArticleRequest;
 import me.shinsunyoung.springBootDeveloper.repository.BlogRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class BlogService {
     }
 
     public List<Article> findAll() {
-        return blogRepository.findAll();
+        return blogRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
 
     public Article findById(long id) {
