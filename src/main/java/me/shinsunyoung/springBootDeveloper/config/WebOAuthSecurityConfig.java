@@ -39,6 +39,14 @@ public class WebOAuthSecurityConfig {
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
+
+    // Spring Boot는 애플리케이션 컨텍스트에서 @Bean으로 정의된 SecurityFilterChain을 자동 검색
+
+    // 1. 클라이언트가 HTTP 요청을 보낸다.
+    // 2. DelegatingFilterProxy가 요청을 가로채고 Spring Security의 필터 체인으로 전달한다.
+    // 3. filterChain 메소드에 설정한 내용에 따라 필터가 순차적으로 시행된다.
+
+    // 즉, filterChain 메서드는 애플리케이션이 시작될 때 한 번 호출되고, 설정된 필터 체인은 모든 요청마다 작동합니다.😊
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
